@@ -6,22 +6,139 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #03050a;
+  font-family: "Poppins", sans-serif;
+  background: #020408;
   color: white;
+  overflow-x: hidden;
 }
 
-/* =========================
-   WELCOME SCREEN
-========================= */
+/* ==============================
+   FLOATING HEARTS
+============================== */
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -60px;
+  font-size: 25px;
+  opacity: 0;
+  animation: floatHeart linear infinite;
+}
+
+.hearts span:nth-child(1) {
+  left: 3%;
+  animation-duration: 8s;
+}
+
+.hearts span:nth-child(2) {
+  left: 9%;
+  animation-duration: 11s;
+  animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+  left: 16%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+  left: 24%;
+  animation-duration: 12s;
+}
+
+.hearts span:nth-child(5) {
+  left: 32%;
+  animation-duration: 10s;
+  animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+  left: 40%;
+  animation-duration: 8s;
+}
+
+.hearts span:nth-child(7) {
+  left: 48%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.hearts span:nth-child(8) {
+  left: 56%;
+  animation-duration: 9s;
+}
+
+.hearts span:nth-child(9) {
+  left: 64%;
+  animation-duration: 11s;
+  animation-delay: 4s;
+}
+
+.hearts span:nth-child(10) {
+  left: 72%;
+  animation-duration: 8s;
+}
+
+.hearts span:nth-child(11) {
+  left: 79%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.hearts span:nth-child(12) {
+  left: 85%;
+  animation-duration: 10s;
+}
+
+.hearts span:nth-child(13) {
+  left: 91%;
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+
+.hearts span:nth-child(14) {
+  left: 18%;
+  animation-duration: 14s;
+}
+
+.hearts span:nth-child(15) {
+  left: 90%;
+  animation-duration: 13s;
+}
+
+.hearts span:nth-child(16) {
+  left: 55%;
+  animation-duration: 15s;
+  animation-delay: 4s;
+}
+
+.hearts span:nth-child(17) {
+  left: 35%;
+  animation-duration: 12s;
+  animation-delay: 5s;
+}
+
+.hearts span:nth-child(18) {
+  left: 70%;
+  animation-duration: 14s;
+  animation-delay: 5s;
+}
+
+/* ==============================
+   WELCOME
+============================== */
 
 .welcome-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100vh;
+  inset: 0;
 
   display: flex;
   justify-content: center;
@@ -29,11 +146,16 @@ body {
 
   text-align: center;
 
-  background: radial-gradient(circle, #0b3d85, #03050a 70%);
+  background: radial-gradient(
+    circle at center,
+    #0b3d85 0%,
+    #06152d 35%,
+    #020408 75%
+  );
 
   z-index: 9999;
 
-  transition: 1s;
+  transition: 1.5s ease;
 }
 
 .welcome-screen.hide {
@@ -43,80 +165,101 @@ body {
 
 .welcome-content {
   padding: 30px;
+  animation: appear 1.5s ease;
 }
 
 .welcome-content h1 {
-  font-size: 55px;
+  font-family: "Great Vibes", cursive;
+
+  font-size: 90px;
+
+  font-weight: 400;
+
   margin: 20px 0;
+
+  text-shadow:
+    0 0 20px #087cff,
+    0 0 50px #087cff;
 }
 
 .welcome-content p {
-  color: #d6e7ff;
-  margin-bottom: 20px;
+  color: #d8e8ff;
+
+  margin: 15px 0;
 }
 
-/* =========================
+/* ==============================
    HEART
-========================= */
+============================== */
 
 .heart {
-  font-size: 80px;
+  font-size: 85px;
 
   animation: heartbeat 1.5s infinite;
 
-  filter: drop-shadow(0 0 25px #008cff);
+  filter: drop-shadow(0 0 15px #008cff) drop-shadow(0 0 40px #008cff);
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* ==============================
+   BUTTONS
+============================== */
 
 button {
-  border: none;
+  border: 1px solid #4da3ff;
 
-  padding: 15px 30px;
+  padding: 16px 35px;
 
-  border-radius: 30px;
+  border-radius: 50px;
 
-  background: #087cff;
+  background: linear-gradient(135deg, #087cff, #003b78);
 
   color: white;
 
-  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+
+  font-size: 15px;
 
   cursor: pointer;
 
-  box-shadow: 0 0 20px rgba(0, 140, 255, 0.5);
+  transition: 0.4s;
 
-  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
 }
 
 button:hover {
   transform: scale(1.08);
 
-  box-shadow: 0 0 35px rgba(0, 140, 255, 0.9);
+  box-shadow:
+    0 0 25px #087cff,
+    0 0 50px rgba(0, 123, 255, 0.6);
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ==============================
+   NAV
+============================== */
 
 nav {
   position: fixed;
-
   top: 0;
   left: 0;
 
   width: 100%;
+
+  padding: 20px 7%;
 
   display: flex;
 
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 7%;
+  background: rgba(2, 4, 8, 0.92);
 
-  background: rgba(3, 5, 10, 0.95);
+  backdrop-filter: blur(12px);
 
   border-bottom: 1px solid #123a70;
 
@@ -124,11 +267,16 @@ nav {
 }
 
 nav h2 {
+  font-family: "Playfair Display", serif;
+
   color: #4da3ff;
+
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
 }
 
 .nav-links {
   display: flex;
+
   gap: 25px;
 }
 
@@ -146,9 +294,9 @@ nav h2 {
   color: #4da3ff;
 }
 
-/* =========================
+/* ==============================
    HERO
-========================= */
+============================== */
 
 .hero {
   min-height: 100vh;
@@ -158,53 +306,68 @@ nav h2 {
   flex-direction: column;
 
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
 
-  padding: 120px 30px;
+  padding: 130px 30px 80px;
 
-  background: radial-gradient(circle at top, #0a3475, #03050a 70%);
+  background: radial-gradient(circle at top, #0a3475, #020408 70%);
 }
 
 .small-text {
   color: #80bdff;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 
-  margin: 20px 0 10px;
+  text-transform: uppercase;
+
+  margin: 20px 0;
 }
 
 .hero h1 {
-  font-size: 55px;
+  font-family: "Great Vibes", cursive;
 
-  margin-bottom: 10px;
+  font-size: 85px;
+
+  font-weight: 400;
+
+  text-shadow:
+    0 0 15px #087cff,
+    0 0 40px #087cff;
 }
 
 .hero h2 {
+  font-family: "Playfair Display", serif;
+
   color: #4da3ff;
 
-  font-size: 36px;
+  font-size: 40px;
+
+  margin: 10px 0 25px;
+}
+
+.intro {
+  max-width: 650px;
+
+  color: #d4dbea;
+
+  line-height: 1.9;
 
   margin-bottom: 25px;
 }
 
-.intro {
-  max-width: 600px;
-
-  color: #d4dbea;
-
-  line-height: 1.8;
-
-  margin-bottom: 30px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
+/* ==============================
+   GENERAL SECTIONS
+============================== */
 
 .letter,
-.reasons {
+.reasons,
+.choose,
+.journey,
+.secret,
+.password-surprise {
   padding: 120px 8%;
 
   text-align: center;
@@ -220,46 +383,564 @@ nav h2 {
   margin-bottom: 15px;
 }
 
-.letter {
-  background: #070b14;
-}
-
 .letter h2,
 .reasons h2,
+.choose h2,
+.journey h2,
+.secret h2,
+.password-surprise h2,
 .final h2 {
+  font-family: "Playfair Display", serif;
+
   color: #4da3ff;
 
-  font-size: 40px;
+  font-size: 42px;
 
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
-.letter p {
-  max-width: 700px;
+/* ==============================
+   LETTER
+============================== */
 
-  margin: 20px auto;
+.letter {
+  background: linear-gradient(180deg, #070b14, #020408);
+}
 
-  color: #d4dbea;
+.letter-intro {
+  max-width: 650px;
 
-  line-height: 1.9;
+  margin: 0 auto 50px;
 
-  font-size: 17px;
+  color: #b9c8dc;
+
+  line-height: 1.8;
+}
+
+/* ==============================
+   SPARKLES
+============================== */
+
+.envelope-area {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  position: relative;
+}
+
+.sparkles {
+  position: absolute;
+
+  width: 720px;
+  max-width: 100vw;
+
+  height: 500px;
+
+  pointer-events: none;
+
+  z-index: 10;
+
+  opacity: 0;
+
+  transition: 0.5s;
+}
+
+.envelope.open ~ .open-letter-btn {
+  transform: scale(1);
+}
+
+.sparkles span {
+  position: absolute;
+
+  color: #80bdff;
+
+  font-size: 25px;
+
+  opacity: 0;
+}
+
+.sparkles span:nth-child(1) {
+  top: 25%;
+  left: 15%;
+}
+
+.sparkles span:nth-child(2) {
+  top: 15%;
+  right: 20%;
+}
+
+.sparkles span:nth-child(3) {
+  bottom: 30%;
+  left: 10%;
+}
+
+.sparkles span:nth-child(4) {
+  top: 45%;
+  right: 10%;
+}
+
+.sparkles span:nth-child(5) {
+  bottom: 15%;
+  right: 25%;
+}
+
+.sparkles span:nth-child(6) {
+  top: 35%;
+  left: 30%;
+}
+
+.envelope.open ~ .open-letter-btn {
+  animation: buttonGlow 2s infinite;
+}
+
+/* ==============================
+   ENVELOPE
+============================== */
+
+.envelope {
+  position: relative;
+
+  width: 650px;
+
+  max-width: 90vw;
+
+  height: 400px;
+
+  margin: 70px auto 30px;
+
+  perspective: 1400px;
+
+  z-index: 6;
+}
+
+.envelope-back {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(145deg, #09244a, #031022);
+
+  border: 1px solid #287bd1;
+
+  border-radius: 8px;
+
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.25);
+}
+
+/* ==============================
+   LETTER GLOW
+============================== */
+
+.letter-glow {
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+
+  bottom: 8%;
+
+  height: 85%;
+
+  border-radius: 10px;
+
+  background: #087cff;
+
+  filter: blur(30px);
+
+  opacity: 0;
+
+  z-index: 1;
+
+  transition: opacity 1.5s ease;
+}
+
+/* ==============================
+   DECORATED LETTER PAPER
+============================== */
+
+.letter-paper {
+  position: absolute;
+
+  left: 5%;
+  right: 5%;
+
+  bottom: 5%;
+
+  height: 90%;
+
+  padding: 45px;
+
+  overflow-y: auto;
+
+  background: linear-gradient(135deg, #ffffff, #e4eefb);
+
+  color: #17243a;
+
+  border-radius: 8px;
+
+  border: 2px solid #8ebcf0;
+
+  text-align: left;
+
+  transform: translateY(70px) scale(0.96);
+
+  opacity: 0;
+
+  transition:
+    transform 2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1.2s ease;
+
+  z-index: 2;
+
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+
+  scrollbar-color: #4da3ff #dce8f7;
+}
+
+/* Decorative inner border */
+
+.letter-paper::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border: 1px solid rgba(20, 93, 168, 0.35);
+
+  border-radius: 5px;
+
+  pointer-events: none;
+}
+
+/* Decorative corners */
+
+.letter-corner {
+  position: absolute;
+
+  color: #145da8;
+
+  font-size: 35px;
+
+  opacity: 0.65;
+
+  z-index: 3;
+}
+
+.letter-corner.top-left {
+  top: 15px;
+  left: 18px;
+}
+
+.letter-corner.top-right {
+  top: 15px;
+  right: 18px;
+
+  transform: scaleX(-1);
+}
+
+.letter-corner.bottom-left {
+  bottom: 15px;
+  left: 18px;
+
+  transform: scaleY(-1);
+}
+
+.letter-corner.bottom-right {
+  bottom: 15px;
+  right: 18px;
+
+  transform: rotate(180deg);
+}
+
+/* Top and bottom decorations */
+
+.letter-decoration {
+  text-align: center;
+
+  color: #287bd1;
+
+  letter-spacing: 18px;
+
+  font-size: 20px;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+.letter-decoration.top {
+  margin-bottom: 20px;
+}
+
+.letter-decoration.bottom {
+  margin: 25px 0 15px;
+}
+
+/* Letter text */
+
+.letter-paper p {
+  font-family: "Playfair Display", serif;
+
+  line-height: 1.8;
+
+  margin-bottom: 18px;
+
+  font-size: 15px;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+.letter-greeting {
+  font-size: 28px !important;
+
+  color: #174b87;
+
+  font-weight: 500;
+}
+
+.emotional-line {
+  color: #145da8 !important;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  font-size: 18px !important;
+
+  margin-top: 30px !important;
+
+  padding: 20px;
+
+  border-top: 1px solid rgba(20, 93, 168, 0.25);
+
+  border-bottom: 1px solid rgba(20, 93, 168, 0.25);
 }
 
 .ending {
-  color: #4da3ff !important;
+  text-align: center;
 
-  font-size: 21px !important;
+  color: #174b87 !important;
 
-  font-weight: bold;
+  font-weight: 700;
+
+  font-size: 18px !important;
 }
 
-/* =========================
+.signature {
+  text-align: right;
+
+  font-family: "Great Vibes", cursive !important;
+
+  font-size: 32px !important;
+
+  color: #145da8 !important;
+}
+
+.mini-heart {
+  text-align: center;
+
+  font-size: 25px;
+
+  margin: 10px 0;
+
+  filter: drop-shadow(0 0 8px #087cff);
+}
+
+/* ==============================
+   ENVELOPE FRONT
+============================== */
+
+.envelope-front {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 58%;
+
+  background: linear-gradient(145deg, #0b376d, #04152d);
+
+  clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+
+  z-index: 4;
+
+  border-radius: 0 0 8px 8px;
+
+  transition: transform 1.5s ease;
+}
+
+/* ==============================
+   ENVELOPE FLAP
+============================== */
+
+.envelope::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 62%;
+
+  background: linear-gradient(135deg, #0e4c91, #062348);
+
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+  z-index: 5;
+
+  transform-origin: top;
+
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  backface-visibility: hidden;
+}
+
+/* ==============================
+   SEAL
+============================== */
+
+.seal {
+  position: absolute;
+
+  top: 42%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #061a35;
+
+  border: 2px solid #4da3ff;
+
+  font-size: 28px;
+
+  z-index: 7;
+
+  box-shadow:
+    0 0 20px #087cff,
+    0 0 45px rgba(0, 123, 255, 0.5);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.9s ease;
+}
+
+/* ==============================
+   OPEN ENVELOPE
+============================== */
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .seal {
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0) rotate(180deg);
+}
+
+.envelope.open .letter-paper {
+  transform: translateY(-110px) scale(1);
+
+  opacity: 1;
+
+  z-index: 6;
+
+  transition-delay: 0.5s;
+}
+
+.envelope.open .letter-glow {
+  opacity: 0.35;
+
+  transition-delay: 0.8s;
+}
+
+.envelope.open .envelope-front {
+  transform: translateY(45px);
+
+  z-index: 1;
+}
+
+.envelope.open + .open-letter-btn {
+  margin-top: 70px;
+}
+
+/* Sparkle animation */
+
+.envelope.open ~ .sparkles {
+  opacity: 1;
+}
+
+.envelope.open ~ .sparkles span {
+  animation: sparkle 2s ease forwards;
+}
+
+.envelope.open ~ .sparkles span:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.envelope.open ~ .sparkles span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.envelope.open ~ .sparkles span:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.envelope.open ~ .sparkles span:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.envelope.open ~ .sparkles span:nth-child(5) {
+  animation-delay: 1.4s;
+}
+
+.envelope.open ~ .sparkles span:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+.open-letter-btn {
+  position: relative;
+
+  z-index: 20;
+
+  transition:
+    margin-top 1.5s ease,
+    transform 0.4s ease;
+}
+
+.envelope-hint {
+  color: #8195b1;
+
+  font-size: 13px;
+
+  margin-top: 10px;
+}
+
+/* ==============================
    REASONS
-========================= */
+============================== */
 
 .reasons {
-  background: linear-gradient(#03050a, #071a36);
+  background: radial-gradient(circle, #071a36, #020408 70%);
 }
 
 .cards {
@@ -267,23 +948,27 @@ nav h2 {
 
   justify-content: center;
 
-  gap: 25px;
-
   flex-wrap: wrap;
 
-  margin-top: 40px;
+  gap: 25px;
+
+  max-width: 1000px;
+
+  margin: auto;
 }
 
 .card {
   width: 280px;
 
+  min-height: 210px;
+
   padding: 30px;
 
-  background: #090f1b;
+  background: linear-gradient(145deg, #0b1424, #050912);
 
   border: 1px solid #16457d;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   text-align: left;
 
@@ -291,19 +976,27 @@ nav h2 {
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
 
   border-color: #087cff;
 
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+}
+
+.card span {
+  color: #087cff;
+
+  letter-spacing: 2px;
 }
 
 .card h3 {
+  font-family: "Playfair Display", serif;
+
   color: #4da3ff;
 
-  margin-bottom: 15px;
-
   font-size: 22px;
+
+  margin: 15px 0;
 }
 
 .card p {
@@ -312,54 +1005,515 @@ nav h2 {
   line-height: 1.7;
 }
 
-/* =========================
-   FINAL SECTION
-========================= */
+/* ==============================
+   WHY I CHOOSE YOU
+============================== */
+
+.choose {
+  background: #050a12;
+}
+
+.choose-box {
+  max-width: 750px;
+
+  margin: auto;
+
+  padding: 35px;
+
+  border: 1px solid #16457d;
+
+  border-radius: 25px;
+
+  background: linear-gradient(145deg, #091525, #03070e);
+
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.12);
+}
+
+.choose-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  border-bottom: 1px solid rgba(77, 163, 255, 0.15);
+
+  text-align: left;
+}
+
+.choose-item:last-child {
+  border-bottom: none;
+}
+
+.choose-item span {
+  color: #4da3ff;
+
+  font-size: 30px;
+}
+
+.choose-item p {
+  color: #d1dceb;
+
+  line-height: 1.7;
+}
+
+/* ==============================
+   TIMELINE
+============================== */
+
+.journey {
+  background: linear-gradient(#020408, #071a36);
+}
+
+.timeline {
+  max-width: 750px;
+
+  margin: auto;
+
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background: #1a5c9f;
+}
+
+.timeline-item {
+  position: relative;
+
+  width: 50%;
+
+  padding: 20px 40px;
+
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: 50%;
+
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+
+  top: 20px;
+
+  right: -20px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #061a35;
+
+  border: 1px solid #4da3ff;
+
+  box-shadow: 0 0 15px #087cff;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -20px;
+  right: auto;
+}
+
+.timeline-item h3 {
+  font-family: "Playfair Display", serif;
+
+  color: #4da3ff;
+
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  color: #aab5c8;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+/* ==============================
+   PASSWORD SURPRISE
+============================== */
+
+.password-surprise {
+  background: radial-gradient(circle at center, #071d3b, #020408 70%);
+}
+
+.password-intro {
+  color: #aab5c8;
+
+  margin-bottom: 35px;
+}
+
+.password-box {
+  max-width: 500px;
+
+  margin: auto;
+
+  padding: 45px 30px;
+
+  background: linear-gradient(145deg, #0b1729, #040912);
+
+  border: 1px solid #16457d;
+
+  border-radius: 25px;
+
+  box-shadow: 0 0 35px rgba(0, 123, 255, 0.18);
+}
+
+.lock {
+  font-size: 55px;
+
+  margin-bottom: 15px;
+
+  filter: drop-shadow(0 0 15px #087cff);
+}
+
+.password-box h3 {
+  font-family: "Playfair Display", serif;
+
+  color: #4da3ff;
+
+  font-size: 25px;
+
+  margin-bottom: 10px;
+}
+
+.password-box p {
+  color: #aab5c8;
+
+  margin-bottom: 20px;
+}
+
+.password-box input {
+  width: 100%;
+
+  padding: 15px 20px;
+
+  border-radius: 50px;
+
+  border: 1px solid #24598e;
+
+  outline: none;
+
+  background: #02060d;
+
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  margin-bottom: 15px;
+
+  transition: 0.3s;
+}
+
+.password-box input:focus {
+  border-color: #087cff;
+
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+#wrong-answer {
+  min-height: 25px;
+
+  color: #80bdff;
+
+  font-size: 13px;
+
+  margin-top: 15px;
+}
+
+#unlocked-message {
+  display: none;
+
+  max-width: 650px;
+
+  margin: 40px auto 0;
+
+  padding: 50px 35px;
+
+  border-radius: 25px;
+
+  border: 1px solid #087cff;
+
+  background: radial-gradient(circle, #0a2d5e, #050b15);
+
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.35);
+
+  animation: surpriseAppear 1.2s ease;
+}
+
+#unlocked-message.show {
+  display: block;
+}
+
+.unlock-heart {
+  font-size: 65px;
+
+  animation: heartbeat 1.5s infinite;
+
+  margin-bottom: 20px;
+}
+
+#unlocked-message h3 {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 45px;
+
+  font-weight: 400;
+
+  color: #4da3ff;
+
+  margin-bottom: 25px;
+}
+
+#unlocked-message p {
+  color: #d4dbea;
+
+  line-height: 1.9;
+
+  margin: 15px 0;
+}
+
+#unlocked-message .special-message {
+  color: #80bdff;
+
+  margin-top: 25px;
+}
+
+#unlocked-message h4 {
+  font-family: "Playfair Display", serif;
+
+  color: white;
+
+  font-size: 22px;
+
+  letter-spacing: 1px;
+
+  margin-top: 25px;
+
+  text-shadow: 0 0 15px #087cff;
+}
+
+/* ==============================
+   SECRET
+============================== */
+
+.secret {
+  background: #040912;
+}
+
+.secret-intro {
+  color: #aab5c8;
+
+  margin-bottom: 25px;
+}
+
+#secret-message {
+  display: none;
+
+  max-width: 600px;
+
+  margin: 40px auto 0;
+
+  padding: 45px;
+
+  border: 1px solid #087cff;
+
+  border-radius: 25px;
+
+  background: radial-gradient(circle, #0a2d5e, #050b15);
+
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.3);
+
+  animation: appear 1s ease;
+}
+
+#secret-message.show {
+  display: block;
+}
+
+.secret-heart {
+  font-size: 60px;
+
+  animation: heartbeat 1.5s infinite;
+}
+
+#secret-message h3 {
+  font-family: "Great Vibes", cursive;
+
+  color: #4da3ff;
+
+  font-size: 55px;
+
+  font-weight: 400;
+
+  margin: 20px 0;
+}
+
+#secret-message p {
+  color: #d4dbea;
+
+  line-height: 1.8;
+
+  margin: 8px;
+}
+
+#secret-message .secret-final {
+  color: #4da3ff;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 18px;
+
+  margin-top: 25px;
+}
+
+/* ==============================
+   FINAL
+============================== */
 
 .final {
-  min-height: 85vh;
+  min-height: 100vh;
 
   display: flex;
 
   flex-direction: column;
 
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
 
-  padding: 50px 30px;
+  padding: 80px 30px;
 
-  background: radial-gradient(circle, #0a3475, #03050a 70%);
+  background: radial-gradient(circle at center, #0a3475, #020408 70%);
 }
 
-.final p {
-  max-width: 600px;
+.final-small {
+  color: #80bdff !important;
+
+  letter-spacing: 4px;
+
+  font-size: 11px;
+}
+
+.final h2 {
+  margin-top: 15px;
+}
+
+.final-text {
+  max-width: 650px;
 
   color: #d4dbea;
 
-  line-height: 1.8;
-
-  margin: 20px 0;
+  line-height: 1.9;
 }
 
 .final h1 {
-  color: #4da3ff;
+  font-family: "Great Vibes", cursive;
 
-  font-size: 45px;
+  font-size: 80px;
+
+  font-weight: 400;
+
+  color: #ffffff;
+
+  margin: 15px 0 0;
+
+  text-shadow:
+    0 0 20px #087cff,
+    0 0 50px #087cff;
 }
 
-/* =========================
-   ANIMATION
-========================= */
+.name {
+  font-family: "Playfair Display", serif;
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  color: #4da3ff;
+
+  margin-bottom: 20px;
+
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+}
+
+.final-message {
+  color: #d4dbea;
+
+  font-size: 17px;
+}
+
+.forever {
+  font-family: "Great Vibes", cursive;
+
+  color: #80bdff !important;
+
+  font-size: 38px;
+}
+
+.final-hearts {
+  font-size: 25px;
+
+  margin: 20px 0;
+
+  filter: drop-shadow(0 0 10px #087cff);
+}
+
+.made-with-love {
+  color: #65758c !important;
+
+  font-size: 12px;
+}
+
+/* ==============================
+   ANIMATIONS
+============================== */
 
 @keyframes heartbeat {
   0% {
     transform: scale(1);
   }
 
+  25% {
+    transform: scale(1.08);
+  }
+
   50% {
     transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(1.08);
   }
 
   100% {
@@ -367,13 +1521,103 @@ nav h2 {
   }
 }
 
-/* =========================
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.3) rotate(25deg);
+
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+
+    transform: scale(0) rotate(0deg);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform: scale(1.5) rotate(90deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translateY(-40px) scale(0.5) rotate(180deg);
+  }
+}
+
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px #087cff,
+      0 0 60px rgba(0, 123, 255, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+  }
+}
+
+@keyframes surpriseAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==============================
    MOBILE
-========================= */
+============================== */
 
 @media (max-width: 700px) {
   nav {
     padding: 15px 20px;
+  }
+
+  nav h2 {
+    font-size: 17px;
   }
 
   .nav-links {
@@ -381,24 +1625,133 @@ nav h2 {
   }
 
   .welcome-content h1 {
-    font-size: 38px;
+    font-size: 60px;
   }
 
   .hero h1 {
-    font-size: 38px;
+    font-size: 60px;
   }
 
   .hero h2 {
     font-size: 28px;
   }
 
+  .letter,
+  .reasons,
+  .choose,
+  .journey,
+  .secret,
+  .password-surprise {
+    padding: 90px 20px;
+  }
+
   .letter h2,
   .reasons h2,
+  .choose h2,
+  .journey h2,
+  .secret h2,
+  .password-surprise h2,
   .final h2 {
     font-size: 32px;
   }
 
+  .envelope {
+    height: 450px;
+  }
+
+  .letter-paper {
+    padding: 35px 25px;
+
+    height: 90%;
+  }
+
+  .letter-paper p {
+    font-size: 13px;
+  }
+
+  .letter-paper .letter-greeting {
+    font-size: 25px !important;
+  }
+
+  .letter-paper .signature {
+    font-size: 28px !important;
+  }
+
+  .letter-corner {
+    font-size: 25px;
+  }
+
+  .letter-decoration {
+    font-size: 16px;
+
+    letter-spacing: 10px;
+  }
+
+  .sparkles {
+    width: 100vw;
+  }
+
+  .card {
+    width: 100%;
+
+    max-width: 350px;
+  }
+
+  .choose-box {
+    padding: 20px 10px;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding-left: 60px;
+
+    padding-right: 10px;
+
+    text-align: left;
+  }
+
+  .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 0;
+
+    right: auto;
+  }
+
+  .password-box {
+    padding: 35px 20px;
+  }
+
+  #unlocked-message {
+    padding: 40px 20px;
+  }
+
+  #unlocked-message h3 {
+    font-size: 38px;
+  }
+
+  #unlocked-message h4 {
+    font-size: 18px;
+  }
+
   .final h1 {
+    font-size: 58px;
+  }
+
+  .name {
+    font-size: 20px;
+
+    letter-spacing: 3px;
+  }
+
+  .forever {
     font-size: 32px;
   }
 }
