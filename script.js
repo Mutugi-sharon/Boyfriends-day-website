@@ -3,87 +3,168 @@
 // =========================================
 
 function enterWebsite() {
-  const welcome = document.querySelector(".welcome-screen");
+    const welcome = document.querySelector(".welcome-screen");
 
-  welcome.classList.add("hide");
+    welcome.classList.add("hide");
 }
 
+
 // =========================================
-// SCROLL TO LOVE LETTER
+// OPEN MODAL
 // =========================================
 
-function openLetter() {
-  const letter = document.querySelector("#letter");
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
 
-  letter.scrollIntoView({
-    behavior: "smooth",
-  });
+    if (modal) {
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+    }
 }
+
+
+// =========================================
+// CLOSE MODAL
+// =========================================
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+
+    if (modal) {
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+    }
+}
+
+
+// =========================================
+// CLOSE MODAL WHEN CLICKING OUTSIDE
+// =========================================
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("modal")) {
+
+        event.target.classList.remove("active");
+
+        document.body.style.overflow = "";
+    }
+
+});
+
+
+// =========================================
+// CLOSE MODAL WITH ESCAPE KEY
+// =========================================
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+
+        const activeModal =
+            document.querySelector(".modal.active");
+
+        if (activeModal) {
+
+            activeModal.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+    }
+
+});
+
 
 // =========================================
 // OPEN ENVELOPE
 // =========================================
 
 function openEnvelope() {
-  const envelope = document.querySelector("#envelope");
 
-  const button = document.querySelector("#openEnvelopeButton");
+    const envelope =
+        document.querySelector("#envelope");
 
-  envelope.classList.toggle("open");
+    const button =
+        document.querySelector("#openEnvelopeButton");
 
-  if (envelope.classList.contains("open")) {
-    button.textContent = "My Heart Is Open 💙";
-  } else {
-    button.textContent = "Open My Letter 💌";
-  }
+
+    envelope.classList.toggle("open");
+
+
+    if (envelope.classList.contains("open")) {
+
+        button.textContent =
+            "My Heart Is Open 💙";
+
+    } else {
+
+        button.textContent =
+            "click me 💌";
+    }
 }
+
 
 // =========================================
 // KABABA SURPRISE
 // =========================================
 
 function unlockSurprise() {
-  const input = document.querySelector("#nickname");
 
-  const wrongAnswer = document.querySelector("#wrong-answer");
+    const input =
+        document.querySelector("#nickname");
 
-  const surprise = document.querySelector("#unlocked-message");
+    const wrongAnswer =
+        document.querySelector("#wrong-answer");
 
-  const button = document.querySelector(".password-box button");
+    const surprise =
+        document.querySelector("#unlocked-message");
 
-  const answer = input.value.trim().toLowerCase();
+    const button =
+        document.querySelector(".password-box button");
 
-  if (answer === "kababa") {
-    surprise.classList.add("show");
 
-    wrongAnswer.textContent = "You got it! 🥹💙";
+    const answer =
+        input.value.trim().toLowerCase();
 
-    input.disabled = true;
 
-    button.disabled = true;
+    if (answer === "kababa") {
 
-    button.textContent = "Unlocked 💙";
+        surprise.classList.add("show");
 
-    surprise.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  } else {
-    wrongAnswer.textContent =
-      "Hmmmm... that's not what I call you 😭 Try again, my love. 💙";
+        wrongAnswer.textContent =
+            "You got it! 🥹💙";
 
-    input.value = "";
+        input.disabled = true;
 
-    input.focus();
-  }
+        button.disabled = true;
+
+        button.textContent =
+            "Unlocked 💙";
+
+
+    } else {
+
+        wrongAnswer.textContent =
+            "Hmmmm... that's not what I call you 😭 Try again, my love. 💙";
+
+        input.value = "";
+
+        input.focus();
+    }
 }
+
 
 // =========================================
 // SECRET MESSAGE
 // =========================================
 
 function showSecret() {
-  const message = document.querySelector("#secret-message");
 
-  message.classList.toggle("show");
+    const message =
+        document.querySelector("#secret-message");
+
+
+    message.classList.toggle("show");
 }
