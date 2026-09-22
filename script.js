@@ -3,7 +3,9 @@
 // =========================================
 
 function enterWebsite() {
-    const welcome = document.querySelector(".welcome-screen");
+
+    const welcome =
+        document.querySelector(".welcome-screen");
 
     welcome.classList.add("hide");
 }
@@ -14,9 +16,12 @@ function enterWebsite() {
 // =========================================
 
 function openModal(modalId) {
-    const modal = document.getElementById(modalId);
+
+    const modal =
+        document.getElementById(modalId);
 
     if (modal) {
+
         modal.classList.add("active");
 
         document.body.style.overflow = "hidden";
@@ -29,9 +34,12 @@ function openModal(modalId) {
 // =========================================
 
 function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
+
+    const modal =
+        document.getElementById(modalId);
 
     if (modal) {
+
         modal.classList.remove("active");
 
         document.body.style.overflow = "";
@@ -56,7 +64,7 @@ document.addEventListener("click", function (event) {
 
 
 // =========================================
-// CLOSE MODAL WITH ESCAPE KEY
+// CLOSE MODAL WITH ESCAPE
 // =========================================
 
 document.addEventListener("keydown", function (event) {
@@ -89,9 +97,7 @@ function openEnvelope() {
     const button =
         document.querySelector("#openEnvelopeButton");
 
-
     envelope.classList.toggle("open");
-
 
     if (envelope.classList.contains("open")) {
 
@@ -124,7 +130,6 @@ function unlockSurprise() {
     const button =
         document.querySelector(".password-box button");
 
-
     const answer =
         input.value.trim().toLowerCase();
 
@@ -142,7 +147,6 @@ function unlockSurprise() {
 
         button.textContent =
             "Unlocked 💙";
-
 
     } else {
 
@@ -164,7 +168,6 @@ function showSecret() {
 
     const message =
         document.querySelector("#secret-message");
-
 
     message.classList.toggle("show");
 }
