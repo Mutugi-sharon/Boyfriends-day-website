@@ -1,1078 +1,830 @@
+/* =========================================
+   GENERAL
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   background: #020408;
-  color: white;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
 
-/* ==============================
+button {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+/* =========================================
    FLOATING HEARTS
-============================== */
+========================================= */
 
 .hearts {
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 5;
+  z-index: 1;
 }
 
 .hearts span {
   position: absolute;
-  bottom: -60px;
-  font-size: 25px;
-  opacity: 0;
-  animation: floatHeart linear infinite;
+  bottom: -50px;
+  font-size: 18px;
+  opacity: 0.25;
+  animation: floatHeart 12s linear infinite;
 }
 
 .hearts span:nth-child(1) {
-  left: 3%;
-  animation-duration: 8s;
+  left: 5%;
+  animation-delay: 0s;
 }
 
 .hearts span:nth-child(2) {
-  left: 9%;
-  animation-duration: 11s;
-  animation-delay: 2s;
-}
-
-.hearts span:nth-child(3) {
-  left: 16%;
-  animation-duration: 9s;
-  animation-delay: 4s;
-}
-
-.hearts span:nth-child(4) {
-  left: 24%;
-  animation-duration: 12s;
-}
-
-.hearts span:nth-child(5) {
-  left: 32%;
-  animation-duration: 10s;
+  left: 12%;
   animation-delay: 3s;
 }
 
+.hearts span:nth-child(3) {
+  left: 20%;
+  animation-delay: 6s;
+}
+
+.hearts span:nth-child(4) {
+  left: 28%;
+  animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+  left: 35%;
+  animation-delay: 8s;
+}
+
 .hearts span:nth-child(6) {
-  left: 40%;
-  animation-duration: 8s;
+  left: 43%;
+  animation-delay: 4s;
 }
 
 .hearts span:nth-child(7) {
-  left: 48%;
-  animation-duration: 13s;
-  animation-delay: 2s;
+  left: 50%;
+  animation-delay: 10s;
 }
 
 .hearts span:nth-child(8) {
-  left: 56%;
-  animation-duration: 9s;
+  left: 57%;
+  animation-delay: 2s;
 }
 
 .hearts span:nth-child(9) {
   left: 64%;
-  animation-duration: 11s;
-  animation-delay: 4s;
+  animation-delay: 7s;
 }
 
 .hearts span:nth-child(10) {
-  left: 72%;
-  animation-duration: 8s;
+  left: 71%;
+  animation-delay: 5s;
 }
 
 .hearts span:nth-child(11) {
-  left: 79%;
-  animation-duration: 12s;
-  animation-delay: 2s;
+  left: 78%;
+  animation-delay: 11s;
 }
 
 .hearts span:nth-child(12) {
   left: 85%;
-  animation-duration: 10s;
+  animation-delay: 3s;
 }
 
 .hearts span:nth-child(13) {
   left: 91%;
-  animation-duration: 9s;
-  animation-delay: 3s;
+  animation-delay: 9s;
 }
 
 .hearts span:nth-child(14) {
-  left: 18%;
-  animation-duration: 14s;
+  left: 17%;
+  animation-delay: 12s;
 }
 
 .hearts span:nth-child(15) {
-  left: 90%;
-  animation-duration: 13s;
+  left: 47%;
+  animation-delay: 6s;
 }
 
-.hearts span:nth-child(16) {
-  left: 55%;
-  animation-duration: 15s;
-  animation-delay: 4s;
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-.hearts span:nth-child(17) {
-  left: 35%;
-  animation-duration: 12s;
-  animation-delay: 5s;
-}
 
-.hearts span:nth-child(18) {
-  left: 70%;
-  animation-duration: 14s;
-  animation-delay: 5s;
-}
-
-/* ==============================
-   WELCOME
-============================== */
+/* =========================================
+   WELCOME SCREEN
+========================================= */
 
 .welcome-screen {
   position: fixed;
   inset: 0;
-
+  z-index: 9999;
+  background:
+    radial-gradient(circle at center, #071426 0%, #020408 65%);
   display: flex;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-
-  background: radial-gradient(
-    circle at center,
-    #0b3d85 0%,
-    #06152d 35%,
-    #020408 75%
-  );
-
-  z-index: 9999;
-
-  transition: 1.5s ease;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .welcome-screen.hide {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .welcome-content {
+  width: min(90%, 600px);
   padding: 30px;
-  animation: appear 1.5s ease;
+}
+
+.welcome-content .heart {
+  font-size: 55px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.welcome-content p {
+  color: #bfc9d9;
+  margin: 12px 0;
 }
 
 .welcome-content h1 {
   font-family: "Great Vibes", cursive;
-
-  font-size: 90px;
-
-  font-weight: 400;
-
-  margin: 20px 0;
-
-  text-shadow:
-    0 0 20px #087cff,
-    0 0 50px #087cff;
+  font-size: clamp(55px, 9vw, 90px);
+  color: #ffffff;
+  margin: 10px 0;
+  text-shadow: 0 0 30px rgba(40, 130, 255, 0.4);
 }
 
-.welcome-content p {
-  color: #d8e8ff;
-
-  margin: 15px 0;
-}
-
-/* ==============================
-   HEART
-============================== */
-
-.heart {
-  font-size: 85px;
-
-  animation: heartbeat 1.5s infinite;
-
-  filter: drop-shadow(0 0 15px #008cff) drop-shadow(0 0 40px #008cff);
-}
-
-/* ==============================
-   BUTTONS
-============================== */
-
-button {
-  border: 1px solid #4da3ff;
-
-  padding: 16px 35px;
-
+.welcome-content button {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border: 1px solid #258cff;
   border-radius: 50px;
-
-  background: linear-gradient(135deg, #087cff, #003b78);
-
+  background: #0a192d;
   color: white;
-
-  font-family: "Poppins", sans-serif;
-
   font-size: 15px;
-
-  cursor: pointer;
-
-  transition: 0.4s;
-
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-}
-
-button:hover {
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 25px #087cff,
-    0 0 50px rgba(0, 123, 255, 0.6);
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: default;
-}
-
-/* ==============================
-   NAV
-============================== */
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  padding: 20px 7%;
-
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(2, 4, 8, 0.92);
-
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid #123a70;
-
-  z-index: 1000;
-}
-
-nav h2 {
-  font-family: "Playfair Display", serif;
-
-  color: #4da3ff;
-
-  text-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
-}
-
-.nav-links {
-  display: flex;
-
-  gap: 25px;
-}
-
-.nav-links a {
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 14px;
-
   transition: 0.3s;
 }
 
-.nav-links a:hover {
-  color: #4da3ff;
+.welcome-content button:hover {
+  background: #1268bd;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(20, 120, 255, 0.25);
 }
 
-/* ==============================
-   HERO
-============================== */
 
-.hero {
-  min-height: 100vh;
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+  width: min(1100px, 92%);
+  margin: 20px auto 0;
+  padding: 15px 20px;
 
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 
+  background: rgba(5, 10, 18, 0.9);
+  border: 1px solid rgba(45, 145, 255, 0.25);
+  border-radius: 20px;
+
+  backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 10;
+}
+
+nav h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+nav button {
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  color: #4ca3ff;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 70vh;
+
+  display: flex;
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
 
   text-align: center;
 
-  padding: 130px 30px 80px;
+  padding: 70px 20px 50px;
+}
 
-  background: radial-gradient(circle at top, #0a3475, #020408 70%);
+.hero .heart {
+  font-size: 50px;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite;
 }
 
 .small-text {
-  color: #80bdff;
-
+  max-width: 700px;
+  color: #7890ad;
+  font-size: 11px;
   letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  margin: 20px 0;
+  line-height: 1.8;
 }
 
 .hero h1 {
   font-family: "Great Vibes", cursive;
-
-  font-size: 85px;
-
-  font-weight: 400;
-
-  text-shadow:
-    0 0 15px #087cff,
-    0 0 40px #087cff;
+  font-size: clamp(65px, 10vw, 110px);
+  line-height: 1;
+  margin: 15px 0 0;
+  color: #ffffff;
+  text-shadow: 0 0 35px rgba(35, 130, 255, 0.3);
 }
 
 .hero h2 {
   font-family: "Playfair Display", serif;
-
+  font-size: 28px;
+  margin: 8px 0 20px;
   color: #4da3ff;
-
-  font-size: 40px;
-
-  margin: 10px 0 25px;
 }
 
 .intro {
   max-width: 650px;
-
-  color: #d4dbea;
-
-  line-height: 1.9;
-
-  margin-bottom: 25px;
+  color: #b5c0cf;
+  line-height: 1.8;
+  font-size: 15px;
 }
 
-/* ==============================
-   GENERAL SECTIONS
-============================== */
+.intro strong {
+  color: #ffffff;
+}
 
-.letter,
-.reasons,
-.choose,
-.journey,
-.secret,
-.password-surprise {
-  padding: 120px 8%;
+.hero > button {
+  margin-top: 30px;
+  padding: 14px 30px;
+  border: 1px solid #287fd1;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #0b213d, #07111f);
+  color: white;
+  transition: 0.3s;
+}
 
+.hero > button:hover {
+  background: #1268bd;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(25, 130, 255, 0.25);
+}
+
+
+/* =========================================
+   QUICK MENU
+========================================= */
+
+.quick-menu {
+  width: min(950px, 92%);
+  margin: 0 auto;
+  padding: 35px 20px 80px;
   text-align: center;
 }
 
 .section-title {
   color: #4da3ff;
-
-  font-size: 12px;
-
+  font-size: 11px;
   letter-spacing: 4px;
-
-  margin-bottom: 15px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.letter h2,
-.reasons h2,
-.choose h2,
-.journey h2,
-.secret h2,
-.password-surprise h2,
-.final h2 {
+.quick-menu h2 {
   font-family: "Playfair Display", serif;
-
-  color: #4da3ff;
-
-  font-size: 42px;
-
-  margin-bottom: 35px;
+  font-size: clamp(25px, 5vw, 38px);
+  margin-bottom: 30px;
 }
 
-/* ==============================
-   LETTER
-============================== */
-
-.letter {
-  background: linear-gradient(180deg, #070b14, #020408);
+.quick-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-.letter-intro {
-  max-width: 650px;
+.quick-buttons button {
+  min-height: 110px;
 
-  margin: 0 auto 50px;
-
-  color: #b9c8dc;
-
-  line-height: 1.8;
-}
-
-/* ==============================
-   SPARKLES
-============================== */
-
-.envelope-area {
   display: flex;
-
   flex-direction: column;
-
+  justify-content: center;
   align-items: center;
 
-  position: relative;
+  gap: 8px;
+
+  border: 1px solid rgba(55, 145, 235, 0.25);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(12, 28, 48, 0.95),
+    rgba(4, 10, 18, 0.95)
+  );
+
+  color: white;
+
+  font-size: 30px;
+
+  transition: 0.3s;
 }
 
-.sparkles {
-  position: absolute;
+.quick-buttons button span {
+  font-size: 13px;
+  color: #b8c4d4;
+}
 
-  width: 720px;
-  max-width: 100vw;
+.quick-buttons button:hover {
+  transform: translateY(-5px);
+  border-color: #348ee5;
+  box-shadow: 0 15px 35px rgba(20, 120, 220, 0.15);
+}
 
-  height: 500px;
 
-  pointer-events: none;
+/* =========================================
+   MODALS
+========================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 5000;
+
+  display: none;
+
+  padding: 30px 20px;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  backdrop-filter: blur(10px);
+
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: modalFade 0.3s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+
+  width: min(850px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  margin: 20px auto;
+
+  padding: 45px 35px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 22, 38, 0.98),
+      rgba(2, 6, 12, 0.98)
+    );
+
+  border: 1px solid rgba(55, 145, 235, 0.35);
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(30, 120, 230, 0.08);
+
+  animation: modalSlide 0.35s ease;
+}
+
+@keyframes modalSlide {
+  from {
+    transform: translateY(25px) scale(0.97);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: sticky;
+  float: right;
+
+  top: 0;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(80, 150, 220, 0.3);
+
+  border-radius: 50%;
+
+  background: #081321;
+
+  color: white;
+
+  font-size: 16px;
+
+  transition: 0.3s;
 
   z-index: 10;
-
-  opacity: 0;
-
-  transition: 0.5s;
 }
 
-.envelope.open ~ .open-letter-btn {
-  transform: scale(1);
+.close-btn:hover {
+  background: #166bc0;
+  transform: rotate(90deg);
 }
 
-.sparkles span {
-  position: absolute;
-
-  color: #80bdff;
-
-  font-size: 25px;
-
-  opacity: 0;
+.modal-content > h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 20px;
 }
 
-.sparkles span:nth-child(1) {
-  top: 25%;
-  left: 15%;
+.modal-content::-webkit-scrollbar {
+  width: 6px;
 }
 
-.sparkles span:nth-child(2) {
-  top: 15%;
-  right: 20%;
+.modal-content::-webkit-scrollbar-thumb {
+  background: #17568f;
+  border-radius: 10px;
 }
 
-.sparkles span:nth-child(3) {
-  bottom: 30%;
-  left: 10%;
+
+/* =========================================
+   LOVE LETTER
+========================================= */
+
+.letter-intro {
+  color: #aebccc;
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 30px;
 }
 
-.sparkles span:nth-child(4) {
-  top: 45%;
-  right: 10%;
+.envelope-area {
+  text-align: center;
+  padding: 25px 0;
 }
-
-.sparkles span:nth-child(5) {
-  bottom: 15%;
-  right: 25%;
-}
-
-.sparkles span:nth-child(6) {
-  top: 35%;
-  left: 30%;
-}
-
-.envelope.open ~ .open-letter-btn {
-  animation: buttonGlow 2s infinite;
-}
-
-/* ==============================
-   ENVELOPE
-============================== */
 
 .envelope {
   position: relative;
-
-  width: 650px;
-
+  width: 360px;
+  height: 250px;
   max-width: 90vw;
-
-  height: 400px;
-
-  margin: 70px auto 30px;
-
-  perspective: 1400px;
-
-  z-index: 6;
+  margin: 30px auto;
+  perspective: 1000px;
 }
 
 .envelope-back {
   position: absolute;
-
   inset: 0;
-
-  background: linear-gradient(145deg, #09244a, #031022);
-
-  border: 1px solid #287bd1;
-
-  border-radius: 8px;
-
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.25);
+  background: #07192c;
+  border: 1px solid #20588b;
+  border-radius: 5px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
-
-/* ==============================
-   LETTER GLOW
-============================== */
 
 .letter-glow {
   position: absolute;
-
-  left: 7%;
-  right: 7%;
-
-  bottom: 8%;
-
-  height: 85%;
-
-  border-radius: 10px;
-
-  background: #087cff;
-
-  filter: blur(30px);
-
-  opacity: 0;
-
-  z-index: 1;
-
-  transition: opacity 1.5s ease;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+  background: rgba(40, 140, 255, 0.08);
+  filter: blur(20px);
 }
-
-/* ==============================
-   DECORATED LETTER PAPER
-============================== */
 
 .letter-paper {
   position: absolute;
 
   left: 5%;
-  right: 5%;
-
   bottom: 5%;
 
+  width: 90%;
   height: 90%;
 
-  padding: 45px;
+  padding: 25px;
 
   overflow-y: auto;
 
-  background: linear-gradient(135deg, #ffffff, #e4eefb);
+  background: #f8f8f6;
+  color: #18202b;
 
-  color: #17243a;
-
-  border-radius: 8px;
-
-  border: 2px solid #8ebcf0;
+  border-radius: 4px;
 
   text-align: left;
 
-  transform: translateY(70px) scale(0.96);
+  transform: translateY(0);
 
-  opacity: 0;
-
-  transition:
-    transform 2s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 1.2s ease;
+  transition: 1s ease;
 
   z-index: 2;
-
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
-
-  scrollbar-color: #4da3ff #dce8f7;
 }
 
-/* Decorative inner border */
-
-.letter-paper::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 12px;
-
-  border: 1px solid rgba(20, 93, 168, 0.35);
-
-  border-radius: 5px;
-
-  pointer-events: none;
+.envelope.open .letter-paper {
+  transform: translateY(-170px);
 }
-
-/* Decorative corners */
-
-.letter-corner {
-  position: absolute;
-
-  color: #145da8;
-
-  font-size: 35px;
-
-  opacity: 0.65;
-
-  z-index: 3;
-}
-
-.letter-corner.top-left {
-  top: 15px;
-  left: 18px;
-}
-
-.letter-corner.top-right {
-  top: 15px;
-  right: 18px;
-
-  transform: scaleX(-1);
-}
-
-.letter-corner.bottom-left {
-  bottom: 15px;
-  left: 18px;
-
-  transform: scaleY(-1);
-}
-
-.letter-corner.bottom-right {
-  bottom: 15px;
-  right: 18px;
-
-  transform: rotate(180deg);
-}
-
-/* Top and bottom decorations */
-
-.letter-decoration {
-  text-align: center;
-
-  color: #287bd1;
-
-  letter-spacing: 18px;
-
-  font-size: 20px;
-
-  position: relative;
-
-  z-index: 3;
-}
-
-.letter-decoration.top {
-  margin-bottom: 20px;
-}
-
-.letter-decoration.bottom {
-  margin: 25px 0 15px;
-}
-
-/* Letter text */
 
 .letter-paper p {
   font-family: "Playfair Display", serif;
-
-  line-height: 1.8;
-
-  margin-bottom: 18px;
-
-  font-size: 15px;
-
-  position: relative;
-
-  z-index: 3;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
 
 .letter-greeting {
-  font-size: 28px !important;
-
-  color: #174b87;
-
-  font-weight: 500;
+  font-size: 18px !important;
+  font-weight: 600;
 }
 
 .emotional-line {
-  color: #145da8 !important;
-
-  font-weight: 600;
-
   text-align: center;
-
-  font-size: 18px !important;
-
-  margin-top: 30px !important;
-
-  padding: 20px;
-
-  border-top: 1px solid rgba(20, 93, 168, 0.25);
-
-  border-bottom: 1px solid rgba(20, 93, 168, 0.25);
+  font-style: italic;
+  color: #164c7d;
 }
 
 .ending {
   text-align: center;
-
-  color: #174b87 !important;
-
-  font-weight: 700;
-
-  font-size: 18px !important;
+  font-weight: bold;
 }
 
 .signature {
   text-align: right;
-
   font-family: "Great Vibes", cursive !important;
-
-  font-size: 32px !important;
-
-  color: #145da8 !important;
+  font-size: 25px !important;
 }
 
 .mini-heart {
   text-align: center;
-
-  font-size: 25px;
-
-  margin: 10px 0;
-
-  filter: drop-shadow(0 0 8px #087cff);
+  font-size: 22px;
+  margin: 10px;
 }
 
-/* ==============================
-   ENVELOPE FRONT
-============================== */
+.letter-decoration {
+  text-align: center;
+  color: #236fae;
+  letter-spacing: 10px;
+}
+
+.letter-corner {
+  position: absolute;
+  color: #236fae;
+  font-size: 20px;
+}
+
+.top-left {
+  top: 8px;
+  left: 10px;
+}
+
+.top-right {
+  top: 8px;
+  right: 10px;
+}
+
+.bottom-left {
+  bottom: 8px;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 8px;
+  right: 10px;
+}
 
 .envelope-front {
   position: absolute;
-
   bottom: 0;
   left: 0;
 
   width: 100%;
-  height: 58%;
+  height: 55%;
 
-  background: linear-gradient(145deg, #0b376d, #04152d);
+  background: #0a2948;
 
   clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
 
   z-index: 4;
-
-  border-radius: 0 0 8px 8px;
-
-  transition: transform 1.5s ease;
 }
-
-/* ==============================
-   ENVELOPE FLAP
-============================== */
-
-.envelope::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 62%;
-
-  background: linear-gradient(135deg, #0e4c91, #062348);
-
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-
-  z-index: 5;
-
-  transform-origin: top;
-
-  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-
-  backface-visibility: hidden;
-}
-
-/* ==============================
-   SEAL
-============================== */
 
 .seal {
   position: absolute;
 
-  top: 42%;
   left: 50%;
+  bottom: 35px;
 
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(-50%);
 
-  width: 65px;
-  height: 65px;
+  width: 48px;
+  height: 48px;
 
   display: flex;
-
   justify-content: center;
   align-items: center;
 
+  background: #07172a;
+
+  border: 1px solid #388edc;
+
   border-radius: 50%;
 
-  background: #061a35;
-
-  border: 2px solid #4da3ff;
-
-  font-size: 28px;
-
-  z-index: 7;
-
-  box-shadow:
-    0 0 20px #087cff,
-    0 0 45px rgba(0, 123, 255, 0.5);
-
-  transition:
-    opacity 0.7s ease,
-    transform 0.9s ease;
-}
-
-/* ==============================
-   OPEN ENVELOPE
-============================== */
-
-.envelope.open::before {
-  transform: rotateX(180deg);
-}
-
-.envelope.open .seal {
-  opacity: 0;
-
-  transform: translate(-50%, -50%) scale(0) rotate(180deg);
-}
-
-.envelope.open .letter-paper {
-  transform: translateY(-110px) scale(1);
-
-  opacity: 1;
-
-  z-index: 6;
-
-  transition-delay: 0.5s;
-}
-
-.envelope.open .letter-glow {
-  opacity: 0.35;
-
-  transition-delay: 0.8s;
-}
-
-.envelope.open .envelope-front {
-  transform: translateY(45px);
-
-  z-index: 1;
-}
-
-.envelope.open + .open-letter-btn {
-  margin-top: 70px;
-}
-
-/* Sparkle animation */
-
-.envelope.open ~ .sparkles {
-  opacity: 1;
-}
-
-.envelope.open ~ .sparkles span {
-  animation: sparkle 2s ease forwards;
-}
-
-.envelope.open ~ .sparkles span:nth-child(1) {
-  animation-delay: 0.8s;
-}
-
-.envelope.open ~ .sparkles span:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.envelope.open ~ .sparkles span:nth-child(3) {
-  animation-delay: 1.2s;
-}
-
-.envelope.open ~ .sparkles span:nth-child(4) {
-  animation-delay: 0.9s;
-}
-
-.envelope.open ~ .sparkles span:nth-child(5) {
-  animation-delay: 1.4s;
-}
-
-.envelope.open ~ .sparkles span:nth-child(6) {
-  animation-delay: 1.1s;
+  z-index: 5;
 }
 
 .open-letter-btn {
-  position: relative;
+  padding: 12px 25px;
 
-  z-index: 20;
+  border: 1px solid #2b82ce;
+  border-radius: 30px;
 
-  transition:
-    margin-top 1.5s ease,
-    transform 0.4s ease;
+  background: #08182b;
+
+  color: white;
+
+  transition: 0.3s;
+}
+
+.open-letter-btn:hover {
+  background: #1268bd;
 }
 
 .envelope-hint {
-  color: #8195b1;
-
-  font-size: 13px;
-
-  margin-top: 10px;
+  margin-top: 12px;
+  color: #718096;
+  font-size: 12px;
 }
 
-/* ==============================
+
+/* =========================================
    REASONS
-============================== */
-
-.reasons {
-  background: radial-gradient(circle, #071a36, #020408 70%);
-}
+========================================= */
 
 .cards {
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 25px;
-
-  max-width: 1000px;
-
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .card {
-  width: 280px;
+  padding: 25px;
 
-  min-height: 210px;
+  border: 1px solid rgba(55, 145, 235, 0.2);
+  border-radius: 18px;
 
-  padding: 30px;
+  background: rgba(5, 14, 25, 0.8);
 
-  background: linear-gradient(145deg, #0b1424, #050912);
-
-  border: 1px solid #16457d;
-
-  border-radius: 20px;
-
-  text-align: left;
-
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-12px);
-
-  border-color: #087cff;
-
-  box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+  transform: translateY(-4px);
+  border-color: #277fc7;
 }
 
-.card span {
-  color: #087cff;
-
-  letter-spacing: 2px;
+.card > span {
+  color: #378edc;
+  font-size: 12px;
 }
 
 .card h3 {
+  margin: 10px 0;
   font-family: "Playfair Display", serif;
-
-  color: #4da3ff;
-
-  font-size: 22px;
-
-  margin: 15px 0;
 }
 
 .card p {
-  color: #aab5c8;
-
+  color: #aab7c7;
   line-height: 1.7;
+  font-size: 14px;
 }
 
-/* ==============================
+
+/* =========================================
    WHY I CHOOSE YOU
-============================== */
-
-.choose {
-  background: #050a12;
-}
+========================================= */
 
 .choose-box {
-  max-width: 750px;
-
-  margin: auto;
-
-  padding: 35px;
-
-  border: 1px solid #16457d;
-
-  border-radius: 25px;
-
-  background: linear-gradient(145deg, #091525, #03070e);
-
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .choose-item {
   display: flex;
+  align-items: flex-start;
+  gap: 15px;
 
-  align-items: center;
+  padding: 18px;
 
-  gap: 20px;
+  border-radius: 15px;
 
-  padding: 20px;
+  background: rgba(7, 18, 31, 0.8);
 
-  border-bottom: 1px solid rgba(77, 163, 255, 0.15);
-
-  text-align: left;
-}
-
-.choose-item:last-child {
-  border-bottom: none;
+  border: 1px solid rgba(50, 130, 210, 0.18);
 }
 
 .choose-item span {
   color: #4da3ff;
-
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .choose-item p {
-  color: #d1dceb;
-
+  color: #c0cad7;
   line-height: 1.7;
+  font-size: 14px;
 }
 
-/* ==============================
-   TIMELINE
-============================== */
 
-.journey {
-  background: linear-gradient(#020408, #071a36);
-}
+/* =========================================
+   JOURNEY / TIMELINE
+========================================= */
 
 .timeline {
-  max-width: 750px;
-
-  margin: auto;
-
   position: relative;
+  margin-top: 30px;
+  padding-left: 35px;
 }
 
 .timeline::before {
@@ -1080,191 +832,162 @@ nav h2 {
 
   position: absolute;
 
-  left: 50%;
-
+  left: 9px;
   top: 0;
   bottom: 0;
 
   width: 1px;
 
-  background: #1a5c9f;
+  background: #236da8;
 }
 
 .timeline-item {
   position: relative;
 
-  width: 50%;
-
-  padding: 20px 40px;
-
-  text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-  margin-left: 50%;
-
-  text-align: left;
+  padding: 0 0 35px 25px;
 }
 
 .timeline-dot {
   position: absolute;
 
-  top: 20px;
+  left: -2px;
+  top: 0;
 
-  right: -20px;
+  width: 22px;
+  height: 22px;
 
-  width: 40px;
-  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  background: #08192d;
+
+  border: 1px solid #3188d4;
 
   border-radius: 50%;
 
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  background: #061a35;
-
-  border: 1px solid #4da3ff;
-
-  box-shadow: 0 0 15px #087cff;
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -20px;
-  right: auto;
+  transform: translateX(-50%);
 }
 
 .timeline-item h3 {
   font-family: "Playfair Display", serif;
-
-  color: #4da3ff;
-
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .timeline-item p {
-  color: #aab5c8;
-
+  color: #aebaca;
   line-height: 1.7;
-
   font-size: 14px;
 }
 
-/* ==============================
-   PASSWORD SURPRISE
-============================== */
+
+/* =========================================
+   PASSWORD
+========================================= */
 
 .password-surprise {
-  background: radial-gradient(circle at center, #071d3b, #020408 70%);
+  text-align: center;
 }
 
 .password-intro {
-  color: #aab5c8;
-
-  margin-bottom: 35px;
+  color: #9eabba;
+  margin-bottom: 25px;
 }
 
 .password-box {
-  max-width: 500px;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 30px;
 
-  margin: auto;
+  background: rgba(5, 14, 25, 0.85);
 
-  padding: 45px 30px;
+  border: 1px solid rgba(55, 145, 235, 0.25);
 
-  background: linear-gradient(145deg, #0b1729, #040912);
-
-  border: 1px solid #16457d;
-
-  border-radius: 25px;
-
-  box-shadow: 0 0 35px rgba(0, 123, 255, 0.18);
+  border-radius: 20px;
 }
 
 .lock {
-  font-size: 55px;
-
+  font-size: 45px;
   margin-bottom: 15px;
-
-  filter: drop-shadow(0 0 15px #087cff);
 }
 
 .password-box h3 {
   font-family: "Playfair Display", serif;
-
-  color: #4da3ff;
-
-  font-size: 25px;
-
-  margin-bottom: 10px;
+  font-size: 23px;
 }
 
 .password-box p {
-  color: #aab5c8;
-
-  margin-bottom: 20px;
+  color: #aeb9c7;
+  font-size: 13px;
+  margin: 10px 0 20px;
 }
 
 .password-box input {
   width: 100%;
 
-  padding: 15px 20px;
+  padding: 13px 16px;
 
-  border-radius: 50px;
+  background: #030912;
 
-  border: 1px solid #24598e;
+  border: 1px solid #234b70;
 
-  outline: none;
-
-  background: #02060d;
+  border-radius: 10px;
 
   color: white;
 
   font-family: "Poppins", sans-serif;
 
-  text-align: center;
+  margin-bottom: 12px;
+}
 
-  font-size: 15px;
+.password-box input:focus {
+  border-color: #398fd8;
+  outline: none;
+}
 
-  margin-bottom: 15px;
+.password-box button,
+.secret button {
+  padding: 12px 22px;
+
+  border: 1px solid #2c83d1;
+
+  border-radius: 30px;
+
+  background: #0b2037;
+
+  color: white;
 
   transition: 0.3s;
 }
 
-.password-box input:focus {
-  border-color: #087cff;
-
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+.password-box button:hover,
+.secret button:hover {
+  background: #1268bd;
 }
 
 #wrong-answer {
-  min-height: 25px;
-
-  color: #80bdff;
-
-  font-size: 13px;
-
-  margin-top: 15px;
+  min-height: 20px;
+  color: #70b8ff;
 }
 
 #unlocked-message {
   display: none;
 
-  max-width: 650px;
+  max-width: 600px;
 
-  margin: 40px auto 0;
+  margin: 25px auto 0;
 
-  padding: 50px 35px;
+  padding: 30px;
 
-  border-radius: 25px;
+  border: 1px solid #2b7fc7;
 
-  border: 1px solid #087cff;
+  border-radius: 20px;
 
-  background: radial-gradient(circle, #0a2d5e, #050b15);
+  background: rgba(9, 28, 48, 0.7);
 
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.35);
-
-  animation: surpriseAppear 1.2s ease;
+  animation: reveal 0.5s ease;
 }
 
 #unlocked-message.show {
@@ -1272,247 +995,222 @@ nav h2 {
 }
 
 .unlock-heart {
-  font-size: 65px;
-
-  animation: heartbeat 1.5s infinite;
-
-  margin-bottom: 20px;
+  font-size: 45px;
+  margin-bottom: 15px;
 }
 
 #unlocked-message h3 {
-  font-family: "Great Vibes", cursive;
-
-  font-size: 45px;
-
-  font-weight: 400;
-
-  color: #4da3ff;
-
-  margin-bottom: 25px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
 }
 
 #unlocked-message p {
-  color: #d4dbea;
-
-  line-height: 1.9;
-
-  margin: 15px 0;
+  color: #b9c5d3;
+  line-height: 1.7;
 }
 
-#unlocked-message .special-message {
-  color: #80bdff;
-
-  margin-top: 25px;
+.special-message {
+  margin-top: 15px;
 }
 
 #unlocked-message h4 {
-  font-family: "Playfair Display", serif;
-
-  color: white;
-
-  font-size: 22px;
-
-  letter-spacing: 1px;
-
-  margin-top: 25px;
-
-  text-shadow: 0 0 15px #087cff;
+  margin-top: 15px;
+  color: #54a8f5;
+  font-size: 20px;
 }
 
-/* ==============================
-   SECRET
-============================== */
+
+/* =========================================
+   SECRET MESSAGE
+========================================= */
 
 .secret {
-  background: #040912;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 35px;
+
+  border-top: 1px solid rgba(50, 130, 210, 0.15);
 }
 
 .secret-intro {
-  color: #aab5c8;
-
-  margin-bottom: 25px;
+  color: #aeb9c7;
+  margin: 15px 0 20px;
 }
 
 #secret-message {
   display: none;
 
-  max-width: 600px;
+  max-width: 500px;
 
-  margin: 40px auto 0;
+  margin: 25px auto 0;
 
-  padding: 45px;
+  padding: 30px;
 
-  border: 1px solid #087cff;
+  border-radius: 20px;
 
-  border-radius: 25px;
+  background: rgba(7, 24, 41, 0.8);
 
-  background: radial-gradient(circle, #0a2d5e, #050b15);
-
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.3);
-
-  animation: appear 1s ease;
+  border: 1px solid rgba(50, 135, 220, 0.3);
 }
 
 #secret-message.show {
   display: block;
+  animation: reveal 0.5s ease;
 }
 
 .secret-heart {
-  font-size: 60px;
-
-  animation: heartbeat 1.5s infinite;
+  font-size: 40px;
+  margin-bottom: 15px;
 }
 
 #secret-message h3 {
-  font-family: "Great Vibes", cursive;
-
-  color: #4da3ff;
-
-  font-size: 55px;
-
-  font-weight: 400;
-
-  margin: 20px 0;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 
 #secret-message p {
-  color: #d4dbea;
-
-  line-height: 1.8;
-
-  margin: 8px;
+  color: #c2ccd8;
+  margin: 8px 0;
 }
 
-#secret-message .secret-final {
-  color: #4da3ff;
+.secret-final {
+  margin-top: 20px !important;
+  color: #4ca3ff !important;
+  font-weight: 500;
+}
 
-  font-family: "Playfair Display", serif;
 
+/* =========================================
+   OUR SONG
+========================================= */
+
+.song-box {
+  text-align: center;
+}
+
+.music-icon {
+  font-size: 70px;
+  margin: 25px 0;
+
+  animation: pulse 2s infinite;
+}
+
+.song-box > p {
+  color: #aebaca;
+  margin: 12px 0;
+}
+
+.song-note {
+  color: #4da3ff !important;
   font-size: 18px;
-
-  margin-top: 25px;
+  font-weight: 500;
 }
 
-/* ==============================
-   FINAL
-============================== */
+.music-button {
+  margin-top: 20px;
+
+  padding: 13px 25px;
+
+  border: 1px solid #2d82ce;
+  border-radius: 30px;
+
+  background: #081a2e;
+
+  color: white;
+
+  transition: 0.3s;
+}
+
+.music-button:hover {
+  background: #1268bd;
+}
+
+
+/* =========================================
+   FINAL SECTION
+========================================= */
 
 .final {
-  min-height: 100vh;
+  width: min(800px, 92%);
+  margin: 0 auto;
 
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
+  padding: 80px 20px;
 
   text-align: center;
+}
 
-  padding: 80px 30px;
-
-  background: radial-gradient(circle at center, #0a3475, #020408 70%);
+.final .heart {
+  font-size: 45px;
+  margin-bottom: 20px;
 }
 
 .final-small {
-  color: #80bdff !important;
-
+  color: #4da3ff;
   letter-spacing: 4px;
-
   font-size: 11px;
 }
 
 .final h2 {
-  margin-top: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  margin: 15px 0;
 }
 
 .final-text {
-  max-width: 650px;
-
-  color: #d4dbea;
-
-  line-height: 1.9;
+  color: #9faebe;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
 }
 
 .final h1 {
   font-family: "Great Vibes", cursive;
-
-  font-size: 80px;
-
-  font-weight: 400;
-
-  color: #ffffff;
-
-  margin: 15px 0 0;
-
-  text-shadow:
-    0 0 20px #087cff,
-    0 0 50px #087cff;
+  font-size: clamp(65px, 10vw, 100px);
+  margin: 20px 0;
 }
 
 .name {
   font-family: "Playfair Display", serif;
-
-  font-size: 30px;
-
-  font-weight: 600;
-
-  letter-spacing: 5px;
-
   color: #4da3ff;
-
-  margin-bottom: 20px;
-
-  text-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+  letter-spacing: 3px;
+  font-size: 14px;
 }
 
-.final-message {
-  color: #d4dbea;
-
-  font-size: 17px;
+.final-message,
+.forever {
+  margin-top: 15px;
+  color: #b8c3d0;
 }
 
 .forever {
   font-family: "Great Vibes", cursive;
-
-  color: #80bdff !important;
-
-  font-size: 38px;
+  font-size: 30px;
+  color: #ffffff;
 }
 
 .final-hearts {
-  font-size: 25px;
-
-  margin: 20px 0;
-
-  filter: drop-shadow(0 0 10px #087cff);
+  margin: 25px 0;
+  font-size: 20px;
 }
 
 .made-with-love {
-  color: #65758c !important;
-
-  font-size: 12px;
+  color: #5e7188;
+  font-size: 11px;
+  letter-spacing: 1px;
 }
 
-/* ==============================
+
+/* =========================================
    ANIMATIONS
-============================== */
+========================================= */
 
-@keyframes heartbeat {
+@keyframes pulse {
   0% {
     transform: scale(1);
   }
 
-  25% {
-    transform: scale(1.08);
-  }
-
   50% {
-    transform: scale(1.2);
-  }
-
-  75% {
     transform: scale(1.08);
   }
 
@@ -1521,237 +1219,142 @@ nav h2 {
   }
 }
 
-@keyframes floatHeart {
-  0% {
-    transform: translateY(0) scale(0.6) rotate(0deg);
-
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(-110vh) scale(1.3) rotate(25deg);
-
-    opacity: 0;
-  }
-}
-
-@keyframes appear {
+@keyframes reveal {
   from {
     opacity: 0;
-
-    transform: translateY(30px);
+    transform: translateY(15px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
 
-@keyframes sparkle {
-  0% {
-    opacity: 0;
 
-    transform: scale(0) rotate(0deg);
-  }
-
-  40% {
-    opacity: 1;
-
-    transform: scale(1.5) rotate(90deg);
-  }
-
-  100% {
-    opacity: 0;
-
-    transform: translateY(-40px) scale(0.5) rotate(180deg);
-  }
-}
-
-@keyframes buttonGlow {
-  0% {
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-  }
-
-  50% {
-    box-shadow:
-      0 0 35px #087cff,
-      0 0 60px rgba(0, 123, 255, 0.5);
-  }
-
-  100% {
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-  }
-}
-
-@keyframes surpriseAppear {
-  from {
-    opacity: 0;
-
-    transform: translateY(30px) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ==============================
+/* =========================================
    MOBILE
-============================== */
+========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
+
   nav {
-    padding: 15px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
   }
 
   nav h2 {
-    font-size: 17px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
   }
 
-  .nav-links {
-    display: none;
+  nav button {
+    font-size: 11px;
   }
 
-  .welcome-content h1 {
-    font-size: 60px;
+  .hero {
+    min-height: 65vh;
+    padding-top: 50px;
   }
 
   .hero h1 {
-    font-size: 60px;
+    font-size: 65px;
   }
 
-  .hero h2 {
-    font-size: 28px;
+  .quick-buttons {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .letter,
-  .reasons,
-  .choose,
-  .journey,
-  .secret,
-  .password-surprise {
-    padding: 90px 20px;
+  .modal {
+    padding: 15px 10px;
   }
 
-  .letter h2,
-  .reasons h2,
-  .choose h2,
-  .journey h2,
-  .secret h2,
-  .password-surprise h2,
-  .final h2 {
-    font-size: 32px;
+  .modal-content {
+    padding: 35px 20px;
+    max-height: 94vh;
+    border-radius: 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
   }
 
   .envelope {
-    height: 450px;
+    transform: scale(0.85);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .envelope.open .letter-paper {
+    transform: translateY(-140px);
   }
 
   .letter-paper {
-    padding: 35px 25px;
-
-    height: 90%;
+    padding: 18px;
   }
 
   .letter-paper p {
-    font-size: 13px;
+    font-size: 10px;
   }
 
-  .letter-paper .letter-greeting {
-    font-size: 25px !important;
+  .quick-menu {
+    padding-bottom: 50px;
   }
 
-  .letter-paper .signature {
-    font-size: 28px !important;
-  }
-
-  .letter-corner {
-    font-size: 25px;
-  }
-
-  .letter-decoration {
-    font-size: 16px;
-
-    letter-spacing: 10px;
-  }
-
-  .sparkles {
-    width: 100vw;
-  }
-
-  .card {
-    width: 100%;
-
-    max-width: 350px;
-  }
-
-  .choose-box {
-    padding: 20px 10px;
-  }
-
-  .timeline::before {
-    left: 20px;
-  }
-
-  .timeline-item,
-  .timeline-item:nth-child(even) {
-    width: 100%;
-
-    margin-left: 0;
-
-    padding-left: 60px;
-
-    padding-right: 10px;
-
-    text-align: left;
-  }
-
-  .timeline-dot,
-  .timeline-item:nth-child(even) .timeline-dot {
-    left: 0;
-
-    right: auto;
-  }
-
-  .password-box {
-    padding: 35px 20px;
-  }
-
-  #unlocked-message {
-    padding: 40px 20px;
-  }
-
-  #unlocked-message h3 {
-    font-size: 38px;
-  }
-
-  #unlocked-message h4 {
-    font-size: 18px;
+  .final {
+    padding: 60px 15px;
   }
 
   .final h1 {
-    font-size: 58px;
+    font-size: 70px;
   }
 
-  .name {
-    font-size: 20px;
+}
 
-    letter-spacing: 3px;
+
+@media (max-width: 450px) {
+
+  .quick-buttons {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
-  .forever {
-    font-size: 32px;
+  .quick-buttons button {
+    min-height: 95px;
+    font-size: 25px;
   }
+
+  .quick-buttons button span {
+    font-size: 11px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero h2 {
+    font-size: 23px;
+  }
+
+  .small-text {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .intro {
+    font-size: 13px;
+  }
+
+  .envelope {
+    transform: scale(0.72);
+    margin-top: 10px;
+    margin-bottom: -20px;
+  }
+
+  .final h1 {
+    font-size: 60px;
+  }
+
 }
