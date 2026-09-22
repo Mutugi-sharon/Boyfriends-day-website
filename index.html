@@ -1,101 +1,190 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>HAPPY BOYFRIEND'S DAY 💙</title>
+  <title>HAPPY BOYFRIEND'S DAY 💙</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <body>
-    <!-- FLOATING HEARTS -->
+<body>
 
-    <div class="hearts">
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
-      <span>💙</span>
+  <!-- FLOATING HEARTS -->
+
+  <div class="hearts">
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+    <span>💙</span>
+  </div>
+
+
+  <!-- WELCOME SCREEN -->
+
+  <div class="welcome-screen" id="welcomeScreen">
+
+    <div class="welcome-content">
+
+      <div class="heart">💙</div>
+
+      <p>I made something special for you...</p>
+
+      <h1>For My MAN 🖤</h1>
+
+      <p>There's something I want you to know.</p>
+
+      <button onclick="enterWebsite()">
+        Open with a smile 💙
+      </button>
+
     </div>
 
-    <!-- WELCOME SCREEN -->
+  </div>
 
-    <div class="welcome-screen">
-      <div class="welcome-content">
-        <div class="heart">💙</div>
 
-        <p>I made something special for you...</p>
+  <!-- MAIN WEBSITE -->
 
-        <h1>For My MAN 🖤</h1>
+  <main id="mainWebsite">
 
-        <p>There's something I want you to know.</p>
+    <!-- NAVIGATION -->
 
-        <button onclick="enterWebsite()">Open with a smile 💙</button>
+    <nav>
+
+      <h2>For My Babey 💙</h2>
+
+      <button onclick="openModal('letterModal')">
+        💌 My Heart
+      </button>
+
+      <button onclick="openModal('reasonsModal')">
+        ❤️ Why I Love You
+      </button>
+
+      <button onclick="openModal('chooseModal')">
+        🥹 Why I Choose You
+      </button>
+
+      <button onclick="openModal('journeyModal')">
+        💫 Our Story
+      </button>
+
+      <button onclick="openModal('songModal')">
+        🎵 Our Song
+      </button>
+
+      <button onclick="openModal('secretModal')">
+        🔐 Secret
+      </button>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section id="home" class="hero">
+
+      <div class="heart">💙</div>
+
+      <p class="small-text">
+        HAPPY BOYFRIEND'S DAY TO THE MAN I LOVE MOST IN THE WHOLE WIDE WORLD...
+      </p>
+
+      <h1>Happy Boyfriend's Day</h1>
+
+      <h2>Babey 🖤</h2>
+
+      <p class="intro">
+        Today isn't just about celebrating having a boyfriend. It's about
+        celebrating <strong>you</strong> the man who has become such a
+        beautiful part of my life.
+      </p>
+
+      <button onclick="openModal('letterModal')">
+        Tebu smile ooeee 💌
+      </button>
+
+    </section>
+
+
+    <!-- QUICK BUTTONS -->
+
+    <section class="quick-menu">
+
+      <p class="section-title">A LITTLE SOMETHING FOR YOU</p>
+
+      <h2>Open Whatever Your Heart Wants 💙</h2>
+
+      <div class="quick-buttons">
+
+        <button onclick="openModal('letterModal')">
+          💌
+          <span>My Heart</span>
+        </button>
+
+        <button onclick="openModal('reasonsModal')">
+          ❤️
+          <span>Why I Love You</span>
+        </button>
+
+        <button onclick="openModal('chooseModal')">
+          🥹
+          <span>Why I Choose You</span>
+        </button>
+
+        <button onclick="openModal('journeyModal')">
+          💫
+          <span>Our Story</span>
+        </button>
+
+        <button onclick="openModal('songModal')">
+          🎵
+          <span>Our Song</span>
+        </button>
+
+        <button onclick="openModal('secretModal')">
+          🔐
+          <span>Secret</span>
+        </button>
+
       </div>
-    </div>
 
-    <!-- MAIN WEBSITE -->
+    </section>
 
-    <main>
-      <!-- NAVIGATION -->
 
-      <nav>
-        <h2>For My Babey 💙</h2>
 
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#letter">Love Letter</a>
-          <a href="#reasons">Why I Love You</a>
-          <a href="#choose">Why I Choose You</a>
-        </div>
-      </nav>
+    <!-- ========================= -->
+    <!-- LOVE LETTER MODAL -->
+    <!-- ========================= -->
 
-      <!-- HOME -->
+    <div class="modal" id="letterModal">
 
-      <section id="home" class="hero">
-        <div class="heart">💙</div>
+      <div class="modal-content">
 
-        <p class="small-text">HAPPY BOYFRIEND'S DAY TO THE MAN I LOVE MOST IN THE WHOLE WIDE WORLD...</p>
+        <button class="close-btn" onclick="closeModal('letterModal')">
+          ✕
+        </button>
 
-        <h1>Happy Boyfriend's Day</h1>
-
-        <h2>Babey 🖤</h2>
-
-        <p class="intro">
-          Today isn't just about celebrating having a boyfriend. It's about
-          celebrating <strong>you</strong> the man who has become such a
-          beautiful part of my life.
-        </p>
-
-        <button onclick="openLetter()">Tebu smile ooeee 💌</button>
-      </section>
-
-      <!-- LOVE LETTER -->
-
-      <section id="letter" class="letter">
         <p class="section-title">A LETTER FROM MY HEART</p>
 
         <h2>To My Man 💙</h2>
@@ -106,9 +195,11 @@
           to me.
         </p>
 
+
         <!-- ENVELOPE -->
 
         <div class="envelope-area">
+
           <div class="sparkles">
             <span>✦</span>
             <span>✧</span>
@@ -118,16 +209,18 @@
             <span>✦</span>
           </div>
 
-          <div class="envelope" id="envelope">
-            <div class="envelope-back"></div>
 
-            <!-- DECORATIONS BEHIND LETTER -->
+          <div class="envelope" id="envelope">
+
+            <div class="envelope-back"></div>
 
             <div class="letter-glow"></div>
 
-            <!-- LETTER -->
+
+            <!-- LETTER PAPER -->
 
             <div class="letter-paper">
+
               <div class="letter-decoration top">
                 <span>✦</span>
                 <span>♡</span>
@@ -138,7 +231,9 @@
 
               <div class="letter-corner top-right">❦</div>
 
+
               <p class="letter-greeting">My love,</p>
+
 
               <p>
                 I honestly don't think there are enough words in this world to
@@ -200,29 +295,34 @@
                 I would still choose you.
               </p>
 
+
               <div class="letter-decoration bottom">
                 <span>♡</span>
                 <span>✦</span>
                 <span>♡</span>
               </div>
 
-              <p class="ending">Happy Boyfriend's Day, my love. 🖤💙</p>
+              <p class="ending">
+                Happy Boyfriend's Day, my love. 🖤💙
+              </p>
 
-              <p class="signature">Forever your girl ❤️</p>
+              <p class="signature">
+                Forever your girl ❤️
+              </p>
 
               <div class="letter-corner bottom-left">❦</div>
 
               <div class="letter-corner bottom-right">❦</div>
+
             </div>
 
-            <!-- ENVELOPE FRONT -->
 
             <div class="envelope-front"></div>
 
-            <!-- SEAL -->
-
             <div class="seal">💙</div>
+
           </div>
+
 
           <button
             class="open-letter-btn"
@@ -232,47 +332,64 @@
             click me 💌
           </button>
 
-          <p class="envelope-hint">A little something from my heart...</p>
+          <p class="envelope-hint">
+            A little something from my heart...
+          </p>
+
         </div>
-      </section>
 
-      <!-- WHY I LOVE YOU -->
+      </div>
 
-      <section id="reasons" class="reasons">
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- WHY I LOVE YOU MODAL -->
+    <!-- ========================= -->
+
+    <div class="modal" id="reasonsModal">
+
+      <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal('reasonsModal')">
+          ✕
+        </button>
+
         <p class="section-title">MY HEART</p>
 
         <h2>Reasons I Love You 💙</h2>
 
+
         <div class="cards">
+
           <div class="card">
             <span>01</span>
-
             <h3>Your Heart ❤️</h3>
-
-            <p>I love the person you are and the heart you carry.</p>
+            <p>
+              I love the person you are and the heart you carry.
+            </p>
           </div>
 
           <div class="card">
             <span>02</span>
-
             <h3>Your Love 💙</h3>
-
-            <p>I appreciate all the little ways you show me that you care.</p>
+            <p>
+              I appreciate all the little ways you show me that you care.
+            </p>
           </div>
 
           <div class="card">
             <span>03</span>
-
             <h3>Your Smile 🥹</h3>
-
-            <p>Your smile has a way of making ordinary moments special.</p>
+            <p>
+              Your smile has a way of making ordinary moments special.
+            </p>
           </div>
 
           <div class="card">
             <span>04</span>
-
             <h3>Your Presence ✨</h3>
-
             <p>
               Sometimes simply having you around makes everything feel better.
             </p>
@@ -280,35 +397,49 @@
 
           <div class="card">
             <span>05</span>
-
             <h3>Our Memories 💫</h3>
-
-            <p>Every memory we create together is something I treasure.</p>
+            <p>
+              Every memory we create together is something I treasure.
+            </p>
           </div>
 
           <div class="card">
             <span>06</span>
-
             <h3>Simply You 🖤</h3>
-
             <p>
               I don't need a thousand reasons. I love you because you're you.
             </p>
           </div>
+
         </div>
-      </section>
 
-      <!-- WHY I CHOOSE YOU -->
+      </div>
 
-      <section id="choose" class="choose">
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- WHY I CHOOSE YOU MODAL -->
+    <!-- ========================= -->
+
+    <div class="modal" id="chooseModal">
+
+      <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal('chooseModal')">
+          ✕
+        </button>
+
         <p class="section-title">IF I HAD TO CHOOSE</p>
 
         <h2>Reasons as to why i choose you everyday ❤️</h2>
 
+
         <div class="choose-box">
+
           <div class="choose-item">
             <span>♡</span>
-
             <p>
               Because with you, I have memories that I wouldn't trade for
               anything.
@@ -317,7 +448,6 @@
 
           <div class="choose-item">
             <span>♡</span>
-
             <p>
               Because you have become someone my heart genuinely cares about.
             </p>
@@ -325,7 +455,6 @@
 
           <div class="choose-item">
             <span>♡</span>
-
             <p>
               Because even on ordinary days, you have a way of making life feel
               special.
@@ -334,57 +463,89 @@
 
           <div class="choose-item">
             <span>♡</span>
-
-            <p>Because I love the person I get to be when I'm loving you.</p>
+            <p>
+              Because I love the person I get to be when I'm loving you.
+            </p>
           </div>
 
           <div class="choose-item">
             <span>♡</span>
-
             <p>
               Because if I had to start this story again, I'd still want it to
               be with you.
             </p>
           </div>
+
         </div>
-      </section>
 
-      <!-- OUR JOURNEY -->
+      </div>
 
-      <section class="journey">
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- OUR JOURNEY MODAL -->
+    <!-- ========================= -->
+
+    <div class="modal" id="journeyModal">
+
+      <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal('journeyModal')">
+          ✕
+        </button>
+
         <p class="section-title">OUR LITTLE STORY</p>
 
         <h2>From Then To Now 💫</h2>
 
+
         <div class="timeline">
+
           <div class="timeline-item">
+
             <div class="timeline-dot">❤️</div>
 
             <h3>The Beginning</h3>
 
-            <p>The moment our story started becoming something special.</p>
+            <p>
+              The moment our story started becoming something special.
+            </p>
+
           </div>
 
+
           <div class="timeline-item">
+
             <div class="timeline-dot">🥹</div>
 
             <h3>Getting To Know You</h3>
 
             <p>
-              All the conversations, laughs and little moments that made me fall
-              for you especially the days zenye tulikuwa tunatusiana .
+              All the conversations, laughs and little moments that made me
+              fall for you especially the days zenye tulikuwa tunatusiana.
             </p>
+
           </div>
 
+
           <div class="timeline-item">
+
             <div class="timeline-dot">💙</div>
 
             <h3>Our Memories</h3>
 
-            <p>The moments that became memories I'll always carry with me.We have so many memories together</p>
+            <p>
+              The moments that became memories I'll always carry with me.
+              We have so many memories together.
+            </p>
+
           </div>
 
+
           <div class="timeline-item">
+
             <div class="timeline-dot">✨</div>
 
             <h3>Everything We've Been Through</h3>
@@ -393,129 +554,271 @@
               The beautiful moments, the difficult moments, and everything that
               has made our story ours.
             </p>
+
           </div>
 
+
           <div class="timeline-item">
+
             <div class="timeline-dot">♾️</div>
 
             <h3>Whatever Comes Next</h3>
 
             <p>
-              More memories, more laughter, more love and more moments together and a beautiful future together.
+              More memories, more laughter, more love and more moments together
+              and a beautiful future together.
             </p>
+
           </div>
+
         </div>
-      </section>
 
-      <!-- PASSWORD SURPRISE -->
+      </div>
 
-      <section class="password-surprise">
-        <p class="section-title">JUST BETWEEN US 🔐</p>
+    </div>
 
-        <h2>A Little Secret 💙</h2>
 
-        <p class="password-intro">
-          Only one person should know this special name...
+
+    <!-- ========================= -->
+    <!-- OUR SONG MODAL -->
+    <!-- ========================= -->
+
+    <div class="modal" id="songModal">
+
+      <div class="modal-content song-box">
+
+        <button class="close-btn" onclick="closeModal('songModal')">
+          ✕
+        </button>
+
+        <p class="section-title">OUR SONG 🎵</p>
+
+        <h2>First Time 💙</h2>
+
+        <div class="music-icon">
+          🎵
+        </div>
+
+        <p>
+          A little song for us...
         </p>
 
-        <div class="password-box">
-          <div class="lock">🔐</div>
+        <p class="song-note">
+          "First Time" — TEKEE
+        </p>
 
-          <h3>What do I call you?</h3>
+        <p>
+          Because some songs just feel like memories waiting to happen. 🥹❤️
+        </p>
 
-          <p>Enter the nickname i only call you 🥹</p>
+        <button class="music-button">
+          🎵 Play Our Song
+        </button>
 
-          <input
-            type="text"
-            id="nickname"
-            placeholder="Enter the nickname..."
-            autocomplete="off"
-          />
+      </div>
 
-          <button onclick="unlockSurprise()">Unlock My Surprise 💙</button>
+    </div>
 
-          <p id="wrong-answer"></p>
-        </div>
 
-        <!-- UNLOCKED MESSAGE -->
 
-        <div id="unlocked-message">
-          <div class="unlock-heart">💙</div>
+    <!-- ========================= -->
+    <!-- SECRET MODAL -->
+    <!-- ========================= -->
 
-          <h3>You got it, Kababa 🥹❤️</h3>
+    <div class="modal" id="secretModal">
 
-          <p>If you are reading this, then you know exactly who you are.</p>
+      <div class="modal-content">
 
-          <p>
-            You are not just someone I love. You are someone who has become a
-            very special part of my heart.
+        <button class="close-btn" onclick="closeModal('secretModal')">
+          ✕
+        </button>
+
+
+        <!-- PASSWORD -->
+
+        <div class="password-surprise">
+
+          <p class="section-title">
+            JUST BETWEEN US 🔐
           </p>
 
-          <p class="special-message">
-            And no matter how many times I say it...
+          <h2>A Little Secret 💙</h2>
+
+          <p class="password-intro">
+            Only one person should know this special name...
           </p>
 
-          <h4>I LOVE YOU, MY KABABA. 🖤</h4>
+
+          <div class="password-box">
+
+            <div class="lock">
+              🔐
+            </div>
+
+            <h3>What do I call you?</h3>
+
+            <p>
+              Enter the nickname i only call you 🥹
+            </p>
+
+
+            <input
+              type="text"
+              id="nickname"
+              placeholder="Enter the nickname..."
+              autocomplete="off"
+            />
+
+
+            <button onclick="unlockSurprise()">
+              Unlock My Surprise 💙
+            </button>
+
+
+            <p id="wrong-answer"></p>
+
+          </div>
+
+
+          <!-- UNLOCKED MESSAGE -->
+
+          <div id="unlocked-message">
+
+            <div class="unlock-heart">
+              💙
+            </div>
+
+            <h3>
+              You got it, Kababa 🥹❤️
+            </h3>
+
+            <p>
+              If you are reading this, then you know exactly who you are.
+            </p>
+
+            <p>
+              You are not just someone I love. You are someone who has become a
+              very special part of my heart.
+            </p>
+
+            <p class="special-message">
+              And no matter how many times I say it...
+            </p>
+
+            <h4>
+              I LOVE YOU, MY KABABA. 🖤
+            </h4>
+
+          </div>
+
         </div>
-      </section>
 
-      <!-- SECRET MESSAGE -->
 
-      <section class="secret">
-        <p class="section-title">ONE LITTLE SECRET</p>
+        <!-- SECRET MESSAGE -->
 
-        <h2>Psst... There's Something Else 👀</h2>
+        <div class="secret">
 
-        <p class="secret-intro">
-          You didn't think I'd let you leave without one more little message,
-          did you?
-        </p>
+          <p class="section-title">
+            ONE LITTLE SECRET
+          </p>
 
-        <button onclick="showSecret()">Click Here 💙</button>
+          <h2>
+            Psst... There's Something Else 👀
+          </h2>
 
-        <div id="secret-message">
-          <div class="secret-heart">💙</div>
+          <p class="secret-intro">
+            You didn't think I'd let you leave without one more little message,
+            did you?
+          </p>
 
-          <h3>I would still choose you.</h3>
+          <button onclick="showSecret()">
+            Click Here 💙
+          </button>
 
-          <p>Today.</p>
 
-          <p>Tomorrow.</p>
+          <div id="secret-message">
 
-          <p>And every time life gives me the chance.</p>
+            <div class="secret-heart">
+              💙
+            </div>
 
-          <p class="secret-final">You have my heart, Edwin. 🖤</p>
+            <h3>
+              I would still choose you.
+            </h3>
+
+            <p>Today.</p>
+
+            <p>Tomorrow.</p>
+
+            <p>
+              And every time life gives me the chance.
+            </p>
+
+            <p class="secret-final">
+              You have my heart, Edwin. 🖤
+            </p>
+
+          </div>
+
         </div>
-      </section>
 
-      <!-- FINAL -->
+      </div>
 
-      <section class="final">
-        <div class="heart">💙</div>
+    </div>
 
-        <p class="final-small">BEFORE YOU GO...</p>
 
-        <h2>One Last Thing</h2>
 
-        <p class="final-text">
-          No matter how many words I put on this website, they could never
-          completely explain how much you mean to me.
-        </p>
+    <!-- ========================= -->
+    <!-- FINAL -->
+    <!-- ========================= -->
 
-        <h1>I Love You</h1>
+    <section class="final">
 
-        <div class="name">EDWIN IRUNGU MUIRURI</div>
+      <div class="heart">💙</div>
 
-        <p class="final-message">And I hope you never forget that. 🖤</p>
+      <p class="final-small">
+        BEFORE YOU GO...
+      </p>
 
-        <p class="forever">Forever your girl ❤️</p>
+      <h2>
+        One Last Thing
+      </h2>
 
-        <div class="final-hearts">💙 &nbsp; ❤️ &nbsp; 💙</div>
+      <p class="final-text">
+        No matter how many words I put on this website, they could never
+        completely explain how much you mean to me.
+      </p>
 
-        <p class="made-with-love">Made with love, just for you. HAPPY BOYFRIENDS DAY ML💋❤️</p>
-      </section>
-    </main>
+      <h1>
+        I Love You
+      </h1>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="name">
+        EDWIN IRUNGU MUIRURI
+      </div>
+
+      <p class="final-message">
+        And I hope you never forget that. 🖤
+      </p>
+
+      <p class="forever">
+        Forever your girl ❤️
+      </p>
+
+      <div class="final-hearts">
+        💙 &nbsp; ❤️ &nbsp; 💙
+      </div>
+
+      <p class="made-with-love">
+        Made with love, just for you. HAPPY BOYFRIENDS DAY ML💋❤️
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
 </html>
