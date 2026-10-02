@@ -3,11 +3,30 @@
 // =========================================
 
 function enterWebsite() {
+    const welcomeScreen = document.querySelector(".welcome-screen");
 
-    const welcome =
-        document.querySelector(".welcome-screen");
+    if (welcomeScreen) {
+        welcomeScreen.classList.add("hide");
+    }
+}
 
-    welcome.classList.add("hide");
+
+// =========================================
+// SCROLL TO SECTION
+// =========================================
+
+function scrollToSection(sectionId) {
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 }
 
 
@@ -17,14 +36,14 @@ function enterWebsite() {
 
 function openModal(modalId) {
 
-    const modal =
-        document.getElementById(modalId);
+    const modal = document.getElementById(modalId);
 
     if (modal) {
 
         modal.classList.add("active");
 
         document.body.style.overflow = "hidden";
+
     }
 }
 
@@ -35,14 +54,14 @@ function openModal(modalId) {
 
 function closeModal(modalId) {
 
-    const modal =
-        document.getElementById(modalId);
+    const modal = document.getElementById(modalId);
 
     if (modal) {
 
         modal.classList.remove("active");
 
         document.body.style.overflow = "";
+
     }
 }
 
@@ -58,13 +77,64 @@ document.addEventListener("click", function (event) {
         event.target.classList.remove("active");
 
         document.body.style.overflow = "";
+
     }
 
 });
 
 
 // =========================================
-// CLOSE MODAL WITH ESCAPE
+// SECRET NICKNAME
+// =========================================
+
+function unlockSurprise() {
+
+    const input = document.getElementById("nickname");
+    const wrongAnswer = document.getElementById("wrong-answer");
+    const unlockedMessage = document.getElementById("unlocked-message");
+
+    if (!input || !wrongAnswer || !unlockedMessage) {
+        return;
+    }
+
+    const answer = input.value.trim().toLowerCase();
+
+    if (answer === "kababa") {
+
+        unlockedMessage.classList.add("show");
+
+        wrongAnswer.textContent = "";
+
+    } else {
+
+        unlockedMessage.classList.remove("show");
+
+        wrongAnswer.textContent =
+            "Hmm... that's not what I call you 👀💙";
+
+    }
+}
+
+
+// =========================================
+// SECRET MESSAGE
+// =========================================
+
+function showSecret() {
+
+    const secretMessage =
+        document.getElementById("secret-message");
+
+    if (secretMessage) {
+
+        secretMessage.classList.toggle("show");
+
+    }
+}
+
+
+// =========================================
+// ESC KEY CLOSES MODALS
 // =========================================
 
 document.addEventListener("keydown", function (event) {
@@ -79,95 +149,9 @@ document.addEventListener("keydown", function (event) {
             activeModal.classList.remove("active");
 
             document.body.style.overflow = "";
+
         }
+
     }
 
 });
-
-
-// =========================================
-// OPEN ENVELOPE
-// =========================================
-
-function openEnvelope() {
-
-    const envelope =
-        document.querySelector("#envelope");
-
-    const button =
-        document.querySelector("#openEnvelopeButton");
-
-    envelope.classList.toggle("open");
-
-    if (envelope.classList.contains("open")) {
-
-        button.textContent =
-            "My Heart Is Open 💙";
-
-    } else {
-
-        button.textContent =
-            "click me 💌";
-    }
-}
-
-
-// =========================================
-// KABABA SURPRISE
-// =========================================
-
-function unlockSurprise() {
-
-    const input =
-        document.querySelector("#nickname");
-
-    const wrongAnswer =
-        document.querySelector("#wrong-answer");
-
-    const surprise =
-        document.querySelector("#unlocked-message");
-
-    const button =
-        document.querySelector(".password-box button");
-
-    const answer =
-        input.value.trim().toLowerCase();
-
-
-    if (answer === "kababa") {
-
-        surprise.classList.add("show");
-
-        wrongAnswer.textContent =
-            "You got it! 🥹💙";
-
-        input.disabled = true;
-
-        button.disabled = true;
-
-        button.textContent =
-            "Unlocked 💙";
-
-    } else {
-
-        wrongAnswer.textContent =
-            "Hmmmm... that's not what I call you 😭 Try again, my love. 💙";
-
-        input.value = "";
-
-        input.focus();
-    }
-}
-
-
-// =========================================
-// SECRET MESSAGE
-// =========================================
-
-function showSecret() {
-
-    const message =
-        document.querySelector("#secret-message");
-
-    message.classList.toggle("show");
-}
